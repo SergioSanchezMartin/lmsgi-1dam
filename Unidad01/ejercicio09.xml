@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Declaro el namespace en el elemento raiz -->
+<catalogo xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <libro>
+        <titulo>El Quijote</titulo>
+        <dc:language>Castellano</dc:language>
+        <dc:creator>Miguel de Cervantes</dc:creator>
+    </libro>
+    <libro>
+        <titulo>Game of Thrones</titulo>
+        <dc:language>English</dc:language>
+        <dc:creator>George R.R. Martin </dc:creator>
+    </libro>
+    <libro>
+        <titulo>El principito</titulo>
+        <dc:language>Francés</dc:language>
+        <dc:creator>Antoine Saint-Exupery</dc:creator>
+    </libro>
+</catalogo>

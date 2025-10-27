@@ -1,0 +1,16 @@
+<empleado>
+    <nombre>Lucía Pérez</nombre>
+    <email>lucia@miempresa.com</email>
+    <email>lucia@gmail.com</email>
+</empleado>
+
+<!-- Problema: no se distingue el correo personal del profesional -->
+
+<!-- Solución: reescribir la etiqueta email usando namespaces -->
+
+<empleado xmlns:prof="http://empresa.com/profesional"
+          xmlns:pers="http://empresa.com/personal">
+    <nombre>Lucía Pérez</nombre>
+    <prof:email>lucia@miempresa.com</prof:email>
+    <pers:email>lucia@gmail.com</pers:email>
+</empleado>

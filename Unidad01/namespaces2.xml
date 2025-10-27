@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<catalogo>
+    <libro>
+        <titulo>Aprendiendo XML</titulo>
+        <autor>Fulanico de Tal</autor>
+    </libro>
+    <vinilo>
+        <titulo>Greatest Hits II</titulo>
+        <artista>Queen</artista>
+    </vinilo>
+</catalogo>
+
+<!-- Al leer el XML, no queda claro si <titulo> se refiere al 
+    libro o al vinilo. SOLUCION: uso namespaces -->
+
+<catalogo xmlns:lib="http://www.micatalogo.org/libros"
+          xmlns:disc="http://www.micatalogo.org/discos">
+    <lib:libro>
+        <lib:titulo>Aprendiendo XML</lib:titulo>
+        <lib:autor>Fulanico de Tal</lib:autor>
+    </lib:libro>
+    <disc:vinilo>
+        <disc:titulo>Greatest Hits II</disc:titulo>
+        <disc:artista>Queen</disc:artista>
+    </disc:vinilo>
+</catalogo>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE banco SYSTEM "banco.dtd">
+<banco>
+    <sucursal id="S001">
+        <!-- Cuenta 1 de la sucursal 1 -->
+        <cuenta iban="C001">
+            <cliente dni="11223344S">
+                <nombre>Laura</nombre>
+                <apellidos>Pacheco Hinojosa</apellidos>
+                <!-- <dni>11223344S</dni> -->
+                <telefono>666 11 22 33</telefono>
+            </cliente>
+            <cliente dni="88776655Q">
+                <nombre>Pablo</nombre>
+                <apellidos>Moral Rodríguez</apellidos>
+                <!-- <dni>88776655Q</dni> -->
+                <telefono>666 44 55 66</telefono>
+            </cliente>
+        </cuenta>
+        
+        <!-- Cuenta 2 de la sucursal 1 -->
+        <cuenta iban="C002">
+            <cliente dni="894759345F">
+                <nombre>Pepe</nombre>
+                <apellidos>Gómez</apellidos>
+                <telefono>666 77 88 99</telefono>
+            </cliente>
+        </cuenta>
+    </sucursal>
+
+    <!-- Aquí comienzan los datos de la sucursal 2 -->
+    <sucursal id="S002">
+        <!-- Cuenta 1 de la sucursal 2 -->
+        <cuenta iban="C001">
+            <cliente dni="345677845W">
+                <nombre>Pedro</nombre>
+                <apellidos>Blanco</apellidos>
+                <!-- <dni>11223344S</dni> -->
+                <telefono></telefono>
+            </cliente>
+            <cliente dni="9298233D">
+                <nombre>Elena</nombre>
+                <apellidos>Martínez</apellidos>
+                <!-- <dni>9298233D</dni> -->
+                <telefono>666 44 55 66</telefono>
+            </cliente>
+        </cuenta>
+        
+        <!-- Cuenta 2 de la sucursal 1 -->
+        <cuenta iban="C002">
+            <cliente>
+                <nombre>Pepe</nombre>
+                <apellidos>Gómez</apellidos>
+                <telefono>666 77 88 99</telefono>
+            </cliente>
+        </cuenta>
+    </sucursal>
+</banco>
