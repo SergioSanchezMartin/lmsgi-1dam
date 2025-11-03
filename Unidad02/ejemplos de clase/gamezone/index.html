@@ -23,6 +23,7 @@
                 <li><a href="#">Noticias</a></li>
                 <li><a href="#">Guías</a></li>
                 <li><a href="#">Contacto</a></li>
+                <li><a href="/pages/registro.html">Registro</a></li>
             </ul>
         </nav>
        
@@ -96,29 +97,37 @@
             </form>
         </section>
 
-        <!-- Formulario de registro -->
+        <!-- Formulario de contacto -->
         <section class="tarjeta">
-            <h2>Registro de usuario</h2>
-            <form name="register" action="registro.html" method="post">
-                
-                <!-- Campo de texto -->
-                <label for="nombre">Nombre:</label>
-                <input type="text" name="name" id="nombre" required>
+            <form name="contacto" action="contacto.php" method="get" autocomplete="off">
+                <!-- Lista desplegable -->
+                <label for="categoria">Categoría de juego:</label>
+                <select name="categoria" id="categoria">
+                    <option disabled selected>-Selecciona categoría-</option>
+                    <option value="rol">Rol</option>
+                    <option value="aventura">Aventura</option>
+                    <option value="deportes">Deportes</option>
+                </select>
 
-                <!-- Campo de password -->
-                <label for="clave">Contraseña:</label>
-                <input type="password" name="pass" id="clave" minlength="6" 
-                maxlength="12" required>
+                <!-- Radio y checkbox -->
+                <p>Plataforma:</p>
+                <label><input type="radio" name="plataforma" value="pc" required>PC</label>
+                <label><input type="radio" name="plataforma" value="ps5">PS5</label>
 
-                <!-- Campo número -->
-                <label for="edad">Edad:</label>
-                <input type="number" name="age" id="edad" min="0" required>
+                <p>Suscribirse a noticias:</p>
+                <label><input type="checkbox" name="suscripcion" checked>Sí</label>
 
-                <!-- Campo DNI con pattern-->
+                <!-- hidden se utiliza para enviar datos no visibles para el usuario -->
+                <input type="hidden" name="product-id" value="1234">
+
+                <!-- Textarea: textos largos -->
                 <br>
-                <label for="dni">DNI:</label>
-                <input type="text" name="id" id="dni" pattern="[0-9]{8}[A-Za-z]{1}" required>
-                <button type="submit">Registrar</button>
+                <label for="mensaje">Deja aquí tu mensaje:</label>
+                <textarea name="mensaje" id="mensaje" cols="30" rows="10"></textarea>
+                
+                <!-- Botones -->
+                <input type="submit" value="Contactar">
+                <input type="reset" value="Limpiar formulario">
             </form>
         </section>
     </main>
