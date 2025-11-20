@@ -269,9 +269,9 @@ body {
     grid-template-rows: 100px 1fr 60px;
     gap: 10px;
     grid-template-areas:
-    "header header  header"
-    "nav    main    aside"
-    "footer footer  footer"
+    "header     header  header"
+    "nav        main    aside"
+    "footer     footer  footer"
 }
 
 .area-header {
@@ -319,12 +319,27 @@ body {
     padding: 10px;
 
     /* Alineacion dentro de cada celda */
-    justify-items: start;
-    align-items: start;
+    /* justify-items: start;
+    align-items: stretch; */
+    /* atajo place-items = align-items + justify-items */
+    place-items: stretch;
 
     /* Alineación de la cuadrícula respecto a su contenedor padre */
     justify-content: end;
     align-content: end;
+    /* Atajo place-content = align-content + justify-content */
+    place-content: end center;
+}
+
+.item-4 {
+    order: 1;
+}
+.item-2 {
+    /* justify-self: center;
+    align-self: end; */
+    /* Atajo place-self = align-self + justify-self */
+    place-self: end center;
+    order: -1;
 }
 
 .item-grid { background: indianred;}
