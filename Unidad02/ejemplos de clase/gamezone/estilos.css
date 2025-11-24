@@ -204,7 +204,7 @@ body {
   
   /* Card individual */
   .card {
-    width: 250px;
+    width: 100%;            /* Se adapte al ancho de la celda del grid */
     border: 1px solid #ddd;
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -212,12 +212,15 @@ body {
     text-align: center;
     padding: 12px;
   }
+  p {
+    font-family: "Jersey 10", Courier, monospace;
+  }
   
   /* Imagen dentro de la card */
   .card-imagen {
     width: 100%;            /* ocupa todo el ancho disponible dentro de la card */
     height: 180px;          /* altura fija para todas las imágenes */
-    object-fit: contain;       /* ajusta la imagen sin recortarla */
+    object-fit: contain;      /* ajusta la imagen sin recortarla */
     background-color: #f4f4f4;
     border-radius: 8px;
     margin-bottom: 8px;
@@ -349,3 +352,77 @@ body {
 .contenedor-grid :nth-child(4) { background-color: goldenrod; }
 .contenedor-grid :nth-child(5) { background-color: greenyellow; }
 .contenedor-grid :nth-child(6) { background-color: olivedrab; }
+
+/* ==================================
+   SECCION JUEGOS: Continuación grid
+   ==================================
+*/
+.tarjeta.juegos {
+    width: min(500px, 95%);
+}
+
+.lista-cards--grid {
+    display: grid;
+    /* grid-template-columns: repeat(3, 1fr); */
+    grid-template-columns: minmax(200px, 1fr);          /* MOBILE FIRST */
+    /* minmax(220px, 1fr):
+       - MINIMO: 220 px de ancho
+       - Si hay espacio disponible, se reparte (1fr) y se estira */
+    /* grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); */
+    /* auto-fill: intentar llenar la fila con el máximo número de cards 
+                  incluso si no hay suficientes cards, reserva huecos */
+
+    /* grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); */
+    /* auto-fit:  colapsa los huecos vacíos si los hay
+                  las cards que haya se estiran para rellenar el espacio */
+    gap: 16px;
+}
+
+.card-destacada {
+    /* desde donde caigas, ocupa 2 columnas cuando existan 2+ columnas */
+    /* grid-column: span 2; */
+    background-color: #52889e;
+    border: 2px solid rgb(190, 180, 63);
+}
+
+/* MEDIA QUERIES para otros dispositivos */
+/* TABLET (aprox 768px - 1023px) */
+@media screen and (768px <= width < 1024px) {
+    .tarjeta.juegos {
+        width: min(1000px, 95%);
+    }
+
+    /* 2 columnas de juegos en tablet */
+    .lista-cards--grid {
+        grid-template-columns: repeat(2, minmax(220px, 1fr));
+    }
+
+    #contenido-principal {
+        padding-inline: 1.5rem;     /* Algo más de "aire" en los laterales */
+    }
+
+    .card-destacada {
+        grid-column: span 2;
+    }
+}
+
+/* ESCRITORIO (a partir de 1024px) */
+@media screen and (width >= 1024px) {
+    .tarjeta.juegos {
+        width: min(1200px, 95%);
+    }
+
+    /* Catálogo tipo tienda con columnas variables: 
+        - auto-fit: colapsa huecos vacíos */
+    .lista-cards--grid {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    #contenido-principal {
+        padding-inline: 2rem;     /* Algo más de "aire" en los laterales */
+    }
+
+    .card-destacada {
+        grid-column: span 2;
+    }
+}
