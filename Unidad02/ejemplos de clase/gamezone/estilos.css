@@ -12,7 +12,10 @@ html, body {
 /* El body se convierte en contenedor flexible, dispuesto en columnas y que ocupe todo el alto de la ventana */
 body {
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Orbitron", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    /*  - "Roboto": fuente que hemos traído de Google Fonts 
+        - system-ui -apple-system, etc: fuente del sistema como respaldo 
+        - sans-serif: último recurso si falla lo anterior */
     color: #333;
     background: #f0f0f0;
     display: flex;
@@ -66,6 +69,13 @@ body {
 /* .menu li {
     display: inline-block;
 } */
+
+/* Enlace activo del menú para indicar la página actual */
+.menu a.activo {
+    color:#E74C3C;
+    border-bottom: 2px solid #E74C3C;
+    padding-bottom: 0.2rem;
+}
 
 #contenido-principal {
     padding: 1rem;
@@ -384,6 +394,63 @@ body {
     background-color: #52889e;
     border: 2px solid rgb(190, 180, 63);
 }
+
+/* ==================================
+   SECCION GUIAS
+   ==================================
+*/
+.guias h1 {
+    margin-top: 0;
+}
+
+.guias-videos {
+    margin-top: 2rem;
+}
+
+.guias-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Cada guía individual */
+.guia-video h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Ajuste de los iframe */
+.guia-video iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: 0;
+    border-radius: 8px;
+}
+
+/* ==================================
+   SECCION CONTACTO
+   ==================================
+*/
+.contacto-ubicacion {
+    margin-top: 2rem;
+}
+
+.mapa-contenedor {
+    margin-top: 1rem;
+}
+
+.mapa-contenedor iframe {
+    width: 100%;
+    max-width: 600px;
+    height: 350px;
+    border: 0;
+    border-radius: 8px;
+    /* Centramos horizontalmente */
+    display: block;
+    margin: 0 auto;
+}
+
+
 
 /* MEDIA QUERIES para otros dispositivos */
 /* TABLET (aprox 768px - 1023px) */
