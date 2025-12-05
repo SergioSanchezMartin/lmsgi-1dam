@@ -497,7 +497,6 @@ audio {
 .layout-guias .layout-guias-contenido {
     display: flex;
     flex: 1;
-    min-height: 100vh;
 }
 
 /* Menú lateral */
