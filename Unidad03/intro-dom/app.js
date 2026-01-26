@@ -31,3 +31,11 @@ const section = contenedor.cloneNode();
 //     strong
 //     div
 //         strong (.green)
+const ejercicio = document.querySelector(".ejercicio");
+ejercicio.innerHTML = `Hola taruguitos`;
+const div = document.createElement("div");
+const strong = document.createElement("strong");
+strong.textContent = `Málaga 3 - 0 Burgos`;
+div.appendChild(strong);
+ejercicio.appendChild(div);
+strong.className = "green";
