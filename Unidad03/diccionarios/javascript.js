@@ -26,3 +26,35 @@ for (const clave of claves) {
     opcion.textContent = `${carta[clave].texto} ${carta[clave].emoji}`;
     selectProducto.appendChild(opcion);
 }
+
+tablaMenu.innerHTML = "";
+for (const clave of claves){
+    const producto = carta[clave];
+    const fila = document.createElement("tr");
+    fila.dataset.clave = clave;
+    fila.innerHTML = `
+        <td>${clave}</td>
+        <td>${producto.emoji}</td>
+        <td>${producto.texto}</td>
+        <td>${producto.precio.toFixed(2)}</td>
+        <td>${producto.alergenos.length != 0 ? producto.alergenos.join(", ") : "N/A"}</td>
+        `;
+    tablaMenu.appendChild(fila);
+}
+mostrarProducto(selectProducto.value);
+
+function mostrarProducto(clave) {
+    // Accedemos al "valor" con la clave: menu[clave]
+    const producto = carta[clave];
+
+    infoProducto.innerHTML =
+      `<b>Acceso:</b> carta["${clave}"] → ${producto.emoji} ${producto.texto}, ${producto.precio.toFixed(2)}€`;
+
+    // Resaltar fila
+    for (const tr of tablaMenu.querySelectorAll("tr")) {
+      tr.classList.toggle("fila-seleccionada", tr.dataset.clave === clave);
+    }
+  }
+
+  selectProducto.addEventListener("change", (e) => mostrarProducto(e.target.value));
+
