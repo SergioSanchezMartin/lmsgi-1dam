@@ -8,7 +8,9 @@ fetch("./usuarios.json")
     console.log(data);
   })
   .catch(err => console.error(err));
-// Esto es un string en formato JSON
+
+
+  // Esto es un string en formato JSON
 const texto = `{
     "nombre": "Ana",
     "edad": 30

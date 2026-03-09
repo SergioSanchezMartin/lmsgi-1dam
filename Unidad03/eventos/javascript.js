@@ -29,8 +29,8 @@ const nombre = "Sergio";
 
 // Formas de pasar la función a addEventListener
 // A) Función definida aparte y pasar referencia (la “clásica”)
-// const boton = document.getElementById("btn");
-// const texto = document.querySelector(".salida");
+const boton = document.getElementById("btn");
+const texto = document.querySelector("#salida");
 
 // function saludar() {
 //     texto.textContent = `Salida: Hola ${nombre}`;
@@ -48,9 +48,9 @@ const nombre = "Sergio";
 // });
 
 // D) Función flecha (de las más usadas actualmente)
-// boton.addEventListener("click", () => {
-//     texto.textContent = `Salida: Hola ${nombre}`;
-// });
+boton.addEventListener("click", () => {
+    texto.textContent = `Salida: Hola ${nombre}`;
+});
 
 // ¿Y si hace falta pasarle parámetros?
 // function suma(num1, num2) {
@@ -90,28 +90,28 @@ const nombre = "Sergio";
 
 // Mini-reto (avanzado): Combinar evento click + array para mostrar mensajes distintos según el click.
 // Cada click muestra el siguiente mensaje de un array. Cuando llegue al final, vuelve al principio (cíclico).
-const btn = document.getElementById("btn");
-const btnReset = document.getElementById("btnReset");
-const salida = document.getElementById("salida");
+// const btn = document.getElementById("btn");
+// const btnReset = document.getElementById("btnReset");
+// const salida = document.getElementById("salida");
 
-let i = 0;
+// let i = 0;
 
-const mensajes = [
-    "Si llegas aquí, podrías ser de 1DAW.",
-    "No vas mal, estás alcanzando cierto nivel. Pareces Arbeloa.",
-    "Uff! Esto ya es otra cosa. Flick estaría orgulloso.",
-    "Te has subido al gran FUNESBUQUE."
-];
+// const mensajes = [
+//     "Si llegas aquí, podrías ser de 1DAW.",
+//     "No vas mal, estás alcanzando cierto nivel. Pareces Arbeloa.",
+//     "Uff! Esto ya es otra cosa. Flick estaría orgulloso.",
+//     "Te has subido al gran FUNESBUQUE."
+// ];
 
-btn.addEventListener("click", () => {
-    salida.textContent = mensajes[i];
-    i++;
-    if (i === mensajes.length) i=0;
-});
+// btn.addEventListener("click", () => {
+//     salida.textContent = mensajes[i];
+//     i++;
+//     if (i === mensajes.length) i=0;
+// });
 
-btnReset.addEventListener("click", () => {
-    i = 0;
-    salida.textContent = "Salida: (aún nada)";
-});
+// btnReset.addEventListener("click", () => {
+//     i = 0;
+//     salida.textContent = "Salida: (aún nada)";
+// });
 
 

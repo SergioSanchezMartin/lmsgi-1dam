@@ -13,28 +13,6 @@ const pantalla = document.getElementById("pantalla");
 const botonesOperadores = [...document.querySelectorAll(".operacion")];
 const botonIgual = document.getElementById("igual");
 
-// for (let i = 0; i < botonesNumeros.length; i++) {
-//     botonesNumeros[i].addEventListener("click", () => {
-//         mostrarNumeroPantalla(botonesNumeros[i].textContent);
-//     })
-// }
-
-// Método forEach() [Arrays]
-botonesNumeros.forEach(boton => {
-    boton.addEventListener("click", () => {
-        mostrarNumeroPantalla(boton.textContent);
-    });
-});
-
-botonesOperadores.forEach(boton => {
-    boton.addEventListener("click", () => {
-        manejarOperador(boton.textContent);
-    });
-})
-
-botonIgual.addEventListener("click", calcularOperacion);
-
-
 
 // *************************************
 // ** Funcionalidad de la calculadora **
@@ -48,7 +26,37 @@ botonIgual.addEventListener("click", calcularOperacion);
  *
  */
 document.addEventListener('DOMContentLoaded', () => {
-});
+    //Se le da funcionalidad a todos los botones
+    
+    // for (let i = 0; i < botonesNumeros.length; i++) {
+    //     botonesNumeros[i].addEventListener("click", () => {
+    //         mostrarNumeroPantalla(botonesNumeros[i].textContent);
+    //     })
+    // }
+
+    // Método forEach() [Arrays]
+    botonesNumeros.forEach(boton => {
+        boton.addEventListener("click", () => {
+            mostrarNumeroPantalla(boton.textContent);
+        });
+    });
+
+    // botonesNumeros.forEach(boton => {
+    //     boton.addEventListener("click", (botonevento) => {
+    //         mostrarNumeroPantalla(botonevento.target.textContent);
+    //         console.log(botonevento);
+    //         console.log(botonevento.target.textContent);
+    //     });
+    // });
+
+    botonesOperadores.forEach(boton => {
+        boton.addEventListener("click", () => {
+            manejarOperador(boton.textContent);
+        });
+    })
+
+    botonIgual.addEventListener("click", calcularOperacion);
+    });
 
 /**
  * @brief Deshabilita el botón del punto decimal en la calculadora.
@@ -163,7 +171,12 @@ function calcularOperacion() {
         case "/":
             if (num2 === 0) {
                 valorActual = "Error";
-                // Ponerlo en rojo
+                // TODO: Ponerlo en rojo
+                // let classnames = pantalla.getAttribute("class").split(" ");
+                // classnames[1] = "color-error";
+                // pantalla.className = classnames.join(" ");
+                pantalla.classList.replace("color-normal", "color-error");
+                actualizarPantalla();
                 return;
             }
             resultado = num1 / num2;
@@ -183,7 +196,7 @@ function calcularOperacion() {
  *
  */
 function pantallaColorNormal() { 
-
+    pantalla.className = "pantalla color-normal";
 }
 /**
  * @brief Borra el número introducido actualmente en la pantalla.
@@ -241,21 +254,40 @@ function operacionInmediata(operacion) {
  *
  */
 function aplicarColorResultado(operador) { 
-    let classnames = pantalla.getAttribute("class").split(" ");   //["pantalla", "color-normal"]
+    
+    // let classnames = pantalla.getAttribute("class").split(" ");   //["pantalla", "color-normal"]
+    // switch (operador) {
+    //     case "+":
+    //         classnames[1] = "color-suma";
+    //         break;
+    //     case "-":
+    //         classnames[1] = "color-resta";
+    //         break;
+    //     case "x":
+    //         classnames[1] = "color-multiplicacion";
+    //         break;
+    //     case "/":
+    //         classnames[1] = "color-division";
+    // }
+    // pantalla.className = classnames.join(" ");      //["pantalla color-suma"]
+    pantallaColorNormal();
     switch (operador) {
         case "+":
-            classnames[1] = "color-suma";
+            pantalla.classList.replace("color-normal", "color-suma");
             break;
+    
         case "-":
-            classnames[1] = "color-resta";
+            pantalla.classList.replace("color-normal", "color-resta");
             break;
+        
         case "x":
-            classnames[1] = "color-multiplicacion";
+            pantalla.classList.replace("color-normal", "color-multiplicacion");
             break;
+    
         case "/":
-            classnames[1] = "color-division";
+            pantalla.classList.replace("color-normal", "color-division");
+            break;
     }
-    pantalla.className = classnames.join(" ");
 }
 
 /**
@@ -277,4 +309,14 @@ function aplicarColorResultado(operador) {
  */
 
 window.addEventListener('keydown', (teclaevento) => {
+    console.log(teclaevento.key);
+    switch (teclaevento.key.toLowerCase()) {
+        case '1': 
+        case '2':
+        case '3':
+            mostrarNumeroPantalla(teclaevento.key);
+            break;
+        default:
+            mostrarNumeroPantalla(teclaevento.key);
+    }
 });
